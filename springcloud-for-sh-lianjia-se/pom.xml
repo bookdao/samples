@@ -6,7 +6,6 @@
 		<artifactId>spring-cloud-starter-parent</artifactId>
 		<version>Angel.SR4</version>
    </parent>
-  
   <groupId>com.lianjia.sh.se.samples</groupId>
   <artifactId>springcloud-sample</artifactId>
   <version>0.0.1-SNAPSHOT</version>
