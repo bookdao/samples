@@ -1,19 +1,40 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   
-   <parent>
+  <!--我们项目的父级为  Spring Cloud ， 版本为：Brixton.M4  -->
+  <parent>
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-parent</artifactId>
-		<version>Angel.SR4</version>
-   </parent>
-  <groupId>com.lianjia.sh.se.samples</groupId>
+		<version>Brixton.M4</version>
+	</parent>
+	
+  <groupId>com.lianjia.sh.samples</groupId>
   <artifactId>springcloud-sample</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Spring Cloud Sample for SE@sh.lianjia.com</name>
+  <name>mini loupan</name>
+  <description>Spring Cloud Sample for SE@sh.lianjia.com</description>
   
+  <properties>
+		<!--覆盖Spring提供的1.6，指定了项目编译后的class版本 -->
+		<java.version>1.8</java.version>
+ </properties>
+  
+  <!-- 为防止某些jar包无法下载，我们指定仓库地址 -->
+  <repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>http://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
   
   <modules>
   	<module>loupan-server</module>
+  	<module>loupan-spi</module>
+  	<module>loupan-ui</module>
   </modules>
 </project>
