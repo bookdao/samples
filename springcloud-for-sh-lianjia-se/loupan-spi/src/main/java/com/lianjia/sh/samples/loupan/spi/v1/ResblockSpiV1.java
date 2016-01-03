@@ -35,7 +35,7 @@ public interface ResblockSpiV1 {
    */
   @LoginNeedless
   @RequestMapping(value = "/v1/resblocks", method = RequestMethod.GET, params = "gbCode")
-  Pagination<Resblock> search(@RequestParam("gbCode") int gbCode,
+  Pagination<Resblock> searchV1(@RequestParam("gbCode") int gbCode,
       @RequestParam(value = "districtId", required = false) Integer districtId,
       @RequestParam(value = "bizcircleId", required = false) Integer bizcircleId,
       @RequestParam(value = "pageNo", defaultValue = "1") int pageNo,
@@ -56,7 +56,7 @@ public interface ResblockSpiV1 {
    */
   @LoginNeedless
   @RequestMapping(value = "/v1/resblocks/autoSearch", method = RequestMethod.GET)
-  ListView<Resblock> autoSearch(@RequestParam(value = "keyword", defaultValue = "") String keyword,
+  ListView<Resblock> autoSearchV1(@RequestParam(value = "keyword", defaultValue = "") String keyword,
       @RequestParam(value = "gbCode") int gbCode,
       @RequestParam(value = "size", defaultValue = "20") int size);
 
