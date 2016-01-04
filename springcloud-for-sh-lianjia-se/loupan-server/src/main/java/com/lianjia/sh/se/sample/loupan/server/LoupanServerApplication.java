@@ -1,9 +1,14 @@
 package com.lianjia.sh.se.sample.loupan.server;
 
-import org.springframework.cloud.netflix.feign.FeignClient;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import javax.sql.DataSource;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.dooioo.se.lorik.core.annotation.EnableBuiltinRestSupport;
 
 /**
   * <p>
@@ -13,13 +18,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
   * @since 1.0.0  
   * @Copyright (c) 2015, Lianjia Group All Rights Reserved.
 */
+@Configuration
+@SpringBootApplication
+@EnableBuiltinRestSupport
 public class LoupanServerApplication  {
-  public static void main(String[] args) {
-  } 
   
-  @FeignClient(url="")
-  public interface CityService{
-    @RequestMapping(value="/v1/city/{id}",method=RequestMethod.GET)
-    Object findById(@PathVariable(value="id")int id );
+  @Bean
+  public DataSource data(){
+     return DataSourceBuilder.create().build();
   }
+  
+  public static void main(String[] args) {
+     SpringApplication.run(LoupanServerApplication.class, args);
+  } 
 }

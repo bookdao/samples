@@ -1,16 +1,20 @@
 package com.lianjia.sh.samples.loupan.spi.v1;
 
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.dooioo.se.lorik.spi.view.ListView;
 import com.dooioo.se.lorik.spi.view.Pagination;
 import com.dooioo.se.lorik.spi.view.authorize.LoginNeedless;
+import com.dooioo.se.lorik.spi.view.support.LorikRest;
+import com.dooioo.se.lorik.spi.view.support.LorikRest.Feature;
 import com.lianjia.sh.samples.loupan.spi.v1.model.Resblock;
 
 /**
- * 区域标准服务
+ * 楼盘 SPI V1
  * 
  * @author huisman
  * @since v1
@@ -19,7 +23,7 @@ import com.lianjia.sh.samples.loupan.spi.v1.model.Resblock;
 public interface ResblockSpiV1 {
 
   /**
-   *  根据城市国标码对楼盘搜索，可根据区域ID、商圈ID分页检索楼盘。
+   * 根据城市国标码对楼盘搜索，可根据区域ID、商圈ID分页检索楼盘。
    * 
    * @author huisman
    * @param gbCode 城市对应的国标码
@@ -27,11 +31,10 @@ public interface ResblockSpiV1 {
    * @param districtId 行政区域ID
    * @param pageSize 分页大小
    * @param pageNo 当前页码
-   * @return 
+   * @return
    * @since v1
    * @summary 根据gbCode分页检索楼盘
    * @example /v1/resblocks?gbCode=310000
-   * @errorCode
    */
   @LoginNeedless
   @RequestMapping(value = "/v1/resblocks", method = RequestMethod.GET, params = "gbCode")
@@ -52,12 +55,24 @@ public interface ResblockSpiV1 {
    * @since v1
    * @summary 楼盘自动提示
    * @example /v1/bizcircles/2100000
-   * @errorCode
    */
   @LoginNeedless
   @RequestMapping(value = "/v1/resblocks/autoSearch", method = RequestMethod.GET)
-  ListView<Resblock> autoSearchV1(@RequestParam(value = "keyword", defaultValue = "") String keyword,
+  List<Resblock> autoSearchV1(@RequestParam(value = "keyword", defaultValue = "") String keyword,
       @RequestParam(value = "gbCode") int gbCode,
       @RequestParam(value = "size", defaultValue = "20") int size);
 
+  /**
+   * 根据楼盘ID查找楼盘
+   * 
+   * @param id 楼盘ID
+   * @return
+   * @since v1
+   * @summary 根据ID查找楼盘
+   * @example /v1/resblocks/2100000
+   */
+  @LoginNeedless
+  @LorikRest(value = {Feature.NullTo404}, codes = {"23000:楼盘不存在"})
+  @RequestMapping(value = "/v1/resblocks/{id}", method = RequestMethod.GET)
+  Resblock findByIdV1(@PathVariable(value = "id") int id);
 }

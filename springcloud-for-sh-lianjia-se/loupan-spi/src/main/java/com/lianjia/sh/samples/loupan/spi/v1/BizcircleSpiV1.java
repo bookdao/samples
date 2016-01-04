@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dooioo.se.lorik.spi.view.authorize.LoginNeedless;
+import com.dooioo.se.lorik.spi.view.support.LorikRest;
+import com.dooioo.se.lorik.spi.view.support.LorikRest.Feature;
 import com.lianjia.sh.samples.loupan.spi.v1.model.Bizcircle;
 
 /**
@@ -25,8 +28,8 @@ public interface BizcircleSpiV1 {
      * @since v1
      * @summary 根据区域ID查找所有商圈 
      * @example /v1/bizcircles?districtId=2100200
-     * @errorCode 
       */
+    @LoginNeedless
     @RequestMapping(value="/v1/bizcircles",method=RequestMethod.GET,params="districtId")
     List<Bizcircle> findByDistrictIdV1(@RequestParam("districtId")int districtId);
     
@@ -38,8 +41,9 @@ public interface BizcircleSpiV1 {
      * @since v1
      * @summary 根据商圈ID查找商圈 
      * @example /v1/bizcircles/2100000
-     * @errorCode 
       */
+    @LoginNeedless
+    @LorikRest(value={Feature.NullTo404},codes={"21000:城市不存在"})
     @RequestMapping(value="/v1/bizcircles/{id}",method=RequestMethod.GET)
     Bizcircle findByIdV1(@PathVariable("id")int id);
   

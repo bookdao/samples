@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.dooioo.se.lorik.spi.view.BeanView;
 import com.dooioo.se.lorik.spi.view.authorize.LoginNeedless;
+import com.dooioo.se.lorik.spi.view.support.LorikRest;
+import com.dooioo.se.lorik.spi.view.support.LorikRest.Feature;
 import com.lianjia.sh.samples.loupan.spi.v1.model.City;
 
 /**
@@ -24,7 +27,6 @@ public interface CitySpiV1 {
      * @since v1
      * @summary 查找所有城市 
      * @example /v1/citys
-     * @errorCode 
       */
     @LoginNeedless
     @RequestMapping(value="/v1/citys",method=RequestMethod.GET)
@@ -38,10 +40,10 @@ public interface CitySpiV1 {
      * @since v1
      * @summary  根据gbCode查找城市
      * @example /v1/citys/310000
-     * @errorCode 
       */
     @LoginNeedless
+    @LorikRest(value={Feature.NullTo404},codes={"21000:城市不存在"})
     @RequestMapping(value="/v1/citys/{gbCode}",method=RequestMethod.GET)
-    City findByIdV1(@PathVariable("gbCode")int gbCode);
+    BeanView<City> findByIdV1(@PathVariable("gbCode")int gbCode);
   
 }

@@ -8,11 +8,11 @@
 		<version>Brixton.M4</version>
 	</parent>
 	
-  <groupId>com.lianjia.sh.samples</groupId>
-  <artifactId>springcloud-sample</artifactId>
+  <groupId>com.lianjia.sh.samples.loupan</groupId>
+  <artifactId>loupan</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>mini loupan</name>
+  <name>loupan</name>
   <description>Spring Cloud Sample for SE@sh.lianjia.com</description>
   
   <properties>
