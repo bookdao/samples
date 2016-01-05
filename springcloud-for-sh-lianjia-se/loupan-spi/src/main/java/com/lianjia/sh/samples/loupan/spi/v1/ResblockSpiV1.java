@@ -72,7 +72,7 @@ public interface ResblockSpiV1 {
    * @example /v1/resblocks/2100000
    */
   @LoginNeedless
-  @LorikRest(value = {Feature.NullTo404}, codes = {"23000:楼盘不存在"})
+  @LorikRest(value = {Feature.NullTo404}, codes = {"23000:楼盘不存在","22000:商圈不存在"})
   @RequestMapping(value = "/v1/resblocks/{id}", method = RequestMethod.GET)
   Resblock findByIdV1(@PathVariable(value = "id") int id);
 }
