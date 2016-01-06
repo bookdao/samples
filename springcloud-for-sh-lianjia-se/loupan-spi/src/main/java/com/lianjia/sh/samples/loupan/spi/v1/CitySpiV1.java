@@ -23,10 +23,10 @@ public interface CitySpiV1 {
      /**
      *  返回所有城市，没数据则返回空集合
      * @author huisman
+     * @version v1
      * @return 不存在则返回空集合
-     * @since v1
+     * @since 2016-01-01
      * @summary 查找所有城市 
-     * @example /v1/citys
       */
     @LoginNeedless
     @RequestMapping(value="/v1/citys",method=RequestMethod.GET)
@@ -35,11 +35,11 @@ public interface CitySpiV1 {
     /**
      *  根据城市国标码查找城市信息，不存在则返回 null。
      * @author huisman
+     * @version v1
      * @param  gbCode 城市国标码
      * @return  不存在则返回 null
-     * @since v1
+     * @since 2016-01-01
      * @summary  根据gbCode查找城市
-     * @example /v1/citys/310000
       */
     @LoginNeedless
     @LorikRest(value={Feature.NullTo404},codes={"21000:城市不存在"})

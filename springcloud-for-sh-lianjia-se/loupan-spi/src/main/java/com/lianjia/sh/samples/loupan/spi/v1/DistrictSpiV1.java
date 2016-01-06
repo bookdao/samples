@@ -26,10 +26,10 @@ public interface DistrictSpiV1 {
    * 返回一个城市里的所有行政区域，没有数据则返回空集合
    * 
    * @author huisman
+   * @version v1
    * @param gbCode 城市对应的国标码
-   * @since v1
+   * @since 2016-01-01
    * @summary 根据gbCode查找所有行政区域
-   * @example /v1/districts?gbCode=310000
    */
   @LoginNeedless
   @RequestMapping(value = "/v1/districts", method = RequestMethod.GET, params = "gbCode")
@@ -39,11 +39,11 @@ public interface DistrictSpiV1 {
    * 返回ID关联区域的信息，不存在返回 null。
    * 
    * @author huisman
+   * @version v1
    * @param id 区域ID
    * @return 不存在则返回null
-   * @since v1
+   * @since 2016-01-01
    * @summary 根据区域ID查找区域
-   * @example /v1/bizcircles/2100000
    */
   @LoginNeedless
   @LorikRest(value = {Feature.NullTo404}, codes = {"24000:区域不存在"})

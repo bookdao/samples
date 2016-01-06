@@ -23,11 +23,11 @@ public interface BizcircleSpiV1 {
      /**
      *  返回特定区域下的所有商圈。区域ID不存在或者没有商圈则返回空集合
      * @author huisman
+     * @version v1
      * @param  districtId 区域ID
      * @return 不存在则返回空集合
-     * @since v1
+     * @since 2016-01-01
      * @summary 根据区域ID查找所有商圈 
-     * @example /v1/bizcircles?districtId=2100200
       */
     @LoginNeedless
     @RequestMapping(value="/v1/bizcircles",method=RequestMethod.GET,params="districtId")
@@ -36,11 +36,11 @@ public interface BizcircleSpiV1 {
     /**
      *  返回商圈ID对应的商圈信息，不存在返回 null。
      * @author huisman
+     * @version v1
      * @param  id 商圈ID
      * @return 不存在则返回 null
-     * @since v1
+     * @since 2016-01-01
      * @summary 根据商圈ID查找商圈 
-     * @example /v1/bizcircles/2100000
       */
     @LoginNeedless
     @LorikRest(value={Feature.NullTo404},codes={"21000:城市不存在"})
