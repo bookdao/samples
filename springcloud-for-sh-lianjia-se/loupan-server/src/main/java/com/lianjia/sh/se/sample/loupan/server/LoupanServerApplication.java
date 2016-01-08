@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import com.dooioo.se.lorik.core.annotation.EnableBuiltinRestSupport;
 
@@ -21,6 +22,7 @@ import com.dooioo.se.lorik.core.annotation.EnableBuiltinRestSupport;
 @Configuration
 @SpringBootApplication
 @EnableBuiltinRestSupport
+@EnableAspectJAutoProxy
 public class LoupanServerApplication  {
   
   @Bean

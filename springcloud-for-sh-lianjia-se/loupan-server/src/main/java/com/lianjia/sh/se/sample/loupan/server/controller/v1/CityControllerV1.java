@@ -21,5 +21,4 @@ public class CityControllerV1 implements CitySpiV1{
   public BeanView<City> findByIdV1(int gbCode) {
     return Views.of(new City());
   }
-
 }
