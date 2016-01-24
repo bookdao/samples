@@ -24,7 +24,6 @@
 		<dependency>
          	<groupId>com.dooioo.se.lorik</groupId>
 		    <artifactId>lorik-spi-view</artifactId>
-		    <version>2.1.2</version>
         </dependency>
    </dependencies>
    

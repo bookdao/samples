@@ -4,46 +4,79 @@ import java.io.Serializable;
 
 /**
  * 楼盘
- * 
  * @author huisman
- * @since v1
  * @Copyright (c) 2015, Lianjia Group All Rights Reserved.
  */
 public class Resblock implements Serializable {
   private static final long serialVersionUID = 1L;
-  // 编号
+  /**
+   *编号
+   */
   private Long id;
-  // 城区编号
+  /**
+   *城区编号
+   */
   private Integer districtId;
-  // 商圈编号
+  /**
+   *城区编号
+   */
   private Integer bizcircleId;
-  // 一级社区
+
+  /**
+   *一级社区
+   */
   private String primaryCommunity;
-  // 二级社区
+  /**
+   *二级社区
+   */
   private String secondCommunity;
-  // 名称
+  /**
+   *名称
+   */
   private String name;
-  // 别名
+  /**
+   * 楼盘别名
+   */
   private String alias;
-  // 简拼
+  /**
+   *简拼
+   */
   private String simpleSpell;
-  // 全拼
+  /**
+   *全拼
+   */
   private String fullSpell;
-  // 行政地址
+  /**
+   *行政地址
+   */
   private String adminAddr;
-  // 产权地址
+  /**
+   *产权地址
+   */
   private String propAddr;
-  // 绿化面积
+  /**
+   *绿化面积
+   */
   private float greenArea;
-  // 绿化率
+  /**
+   *绿化率
+   */
   private float greenRate;
-  // 容积率
+  /**
+   *容积率
+   */
   private float cubageRate;
-  // 中心点经度
+  /**
+   *中心点经度
+   */
   private double pointLng;
-  // 中心点纬度
+  /**
+   *中心点纬度
+   */
   private double pointLat;
-  // 城市编号
+  /**
+   *城市编号
+   */
   private Integer gbCode;
 
   public Resblock() {

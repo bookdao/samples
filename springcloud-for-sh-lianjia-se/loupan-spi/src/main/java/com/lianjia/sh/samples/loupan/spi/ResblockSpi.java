@@ -16,8 +16,6 @@ import com.lianjia.sh.samples.loupan.spi.model.Resblock;
 
 /**
  * 楼盘 SPI
- * @author huisman
- * @since v1
  * @summary 楼盘
  * @Copyright (c) 2016, Lianjia Group All Rights Reserved.
  */

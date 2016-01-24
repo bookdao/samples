@@ -15,9 +15,7 @@ import com.lianjia.sh.samples.loupan.spi.model.Bizcircle;
 import com.lianjia.sh.samples.loupan.spi.model.District;
 
 /**
- * 区域标准服务
- * @author huisman
- * @since v1
+ * 区域标准服务，区域指行政区划，比如上海市的静安区、黄埔区等。
  * @summary 区域
  * @Copyright (c) 2016, Lianjia Group All Rights Reserved.
  */
