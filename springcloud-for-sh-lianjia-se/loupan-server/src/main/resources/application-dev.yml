@@ -1,0 +1,60 @@
+# DATASOURCE
+se.dorado.datasource.common:
+    platform: sqlserver
+    url: "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=ApiGateway;sendStringParametersAsUnicode=false"
+    username: dooiooadmin 
+    password: dooioo
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    max-active: 20
+    max-idle: 10
+    min-idle: 2
+    initial-size: 3
+    initialize: false
+  
+# SERVER
+server:
+    port: 12306
+    tomcat:
+       max-threads: 500
+       uri-encoding: UTF-8
+       
+##eureka client
+eureka.client:
+    serviceUrl.defaultZone: http://localhost:8762/eureka/
+
+###eureka instance
+management.contextPath: /admin
+management.port: ${server.port}
+management.addApplicationContextHeader: false
+eureka.instance:
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+    preferIpAddress: true
+    statusPageUrlPath: ${management.contextPath}/info
+    healthCheckUrlPath: ${management.contextPath}/health
+      
+      
+##禁用所有endpoint ,安全相关
+endpoints:
+   enabled: false
+   refresh.enabled: false
+   resume.enabled: false
+   pause.enabled: false
+   env.enabled: false
+spring.jmx.enabled: false
+
+##管理角色ID
+manager.roleId: admin
+
+##断路器相关
+### 默认执行超时时间
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
+
+### memcache
+xtoken.memcached.servers: 127.0.0.1:11211
+#### xtoken 缓存刷新时间
+xtoken.cached.refresh.inhour: 3
+### xtoken 缓存多久
+xtoken.cached.inhour: 4
+
+### 登录校验
+login.checkUrl: http://login.dooioo.net:19100/api/loginCheck?userCode={userCode}&password={password}&type={type}&companyId={companyId}

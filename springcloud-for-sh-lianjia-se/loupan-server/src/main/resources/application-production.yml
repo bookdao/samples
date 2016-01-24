@@ -1,0 +1,47 @@
+# DATASOURCE
+se.dorado.datasource.common:
+    platform: sqlserver
+    url: ""
+    username: 
+    password: 
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    max-active: 20
+    max-idle: 10
+    min-idle: 2
+    initial-size: 3
+    initialize: false
+    testWhileIdle: true
+    testOnBorrow: true
+    removeAbandoned: true
+    removeAbandonedTimeout: 300
+    validationQuery: "select 1"
+    validationInterval: 120000
+  
+# SERVER
+server:
+    port: 12306
+    tomcat:
+       max-threads: 500
+       uri-encoding: UTF-8
+       
+##eureka client
+eureka.client:
+    serviceUrl.defaultZone: 
+
+###eureka instance
+management.context-path: /admin
+management.addApplicationContextHeader: false
+eureka.instance:
+    preferIpAddress: true
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+    metadataMap:
+      instanceId: ${spring.application.name}:${random.value}
+##禁用所有endpoint ,安全相关
+endpoints:
+   enabled: false
+   env.enabled: false
+spring.jmx.enabled: false
+
+## 管理角色
+manager.roleId: 

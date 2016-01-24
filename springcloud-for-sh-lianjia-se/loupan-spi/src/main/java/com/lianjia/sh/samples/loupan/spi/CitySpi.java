@@ -17,7 +17,7 @@ import com.lianjia.sh.samples.loupan.spi.model.City;
   * 城市标准服务，目前仅支持上海、苏州。
   * @summary 城市
   * @Copyright (c) 2016, Lianjia Group All Rights Reserved.
-*/
+  */
 @FeignClient("loupan-server")
 public interface CitySpi {
   

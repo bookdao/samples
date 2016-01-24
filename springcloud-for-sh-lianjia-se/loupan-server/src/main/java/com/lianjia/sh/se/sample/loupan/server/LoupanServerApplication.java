@@ -2,15 +2,21 @@ package com.lianjia.sh.se.sample.loupan.server;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowire;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.cloud.netflix.feign.support.SpringMvcContract;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 
 import com.dooioo.se.lorik.core.annotation.EnableBuiltinRestSupport;
+import com.netflix.governator.annotations.binding.Primary;
 
 /**
   * <p>
@@ -26,7 +32,12 @@ import com.dooioo.se.lorik.core.annotation.EnableBuiltinRestSupport;
 @EnableAspectJAutoProxy
 public class LoupanServerApplication  {
   
-  @Bean
+  @Bean(autowire=Autowire.BY_NAME,destroyMethod="close",initMethod="init",name={"dataSource"})
+  @Scope(value="singleton",proxyMode=ScopedProxyMode.TARGET_CLASS)
+  //@Scope(value="prototype")
+  @DependsOn(value={"otherBeanName"})
+  @Primary
+  @Lazy
   public DataSource data(){
      return DataSourceBuilder.create().build();
   }

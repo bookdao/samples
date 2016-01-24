@@ -15,7 +15,7 @@ import com.dooioo.se.lorik.spi.view.support.LorikRest.Feature;
 import com.lianjia.sh.samples.loupan.spi.model.Resblock;
 
 /**
- * 楼盘 SPI
+ * 楼盘SPI,楼盘是从北京链家同步过来的，目前仅支持苏州、上海的楼盘查询。
  * @summary 楼盘
  * @Copyright (c) 2016, Lianjia Group All Rights Reserved.
  */

@@ -1,0 +1,6 @@
+# development , integration , production
+spring:
+   application:
+      name: api-router
+   profiles:
+      active: integration
