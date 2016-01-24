@@ -1,4 +1,4 @@
-package com.lianjia.sh.samples.loupan.spi.v1.model;
+package com.lianjia.sh.samples.loupan.spi.model;
 
 import java.io.Serializable;
 
@@ -62,7 +62,6 @@ public class Resblock implements Serializable {
   }
 
   /**
-   * 
    * @return 楼盘所属区域
    */
   public Integer getDistrictId() {

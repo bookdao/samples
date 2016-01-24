@@ -1,4 +1,4 @@
-package com.lianjia.sh.samples.loupan.spi.v1.model;
+package com.lianjia.sh.samples.loupan.spi.model;
 
 import java.io.Serializable;
 

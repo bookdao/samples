@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dooioo.se.lorik.spi.view.BeanView;
 import com.dooioo.se.lorik.spi.view.support.Views;
-import com.lianjia.sh.samples.loupan.spi.v1.CitySpiV1;
-import com.lianjia.sh.samples.loupan.spi.v1.model.City;
+import com.lianjia.sh.samples.loupan.spi.CitySpi;
+import com.lianjia.sh.samples.loupan.spi.model.City;
 
 @RestController
-public class CityControllerV1 implements CitySpiV1{
+public class CityControllerV1 implements CitySpi{
 
   @Override
   public List<City> findAllV1() {

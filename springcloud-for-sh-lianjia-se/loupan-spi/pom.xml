@@ -6,7 +6,8 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>loupan-spi</artifactId>
-   <packaging>jar</packaging>
+  <packaging>jar</packaging>
+  <name>楼盘字典</name>
   <version>1.0.0</version>
   
    <dependencies>
@@ -26,4 +27,25 @@
 		    <version>2.1.2</version>
         </dependency>
    </dependencies>
+   
+  <build>
+    <plugins>
+    		<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <doclet>com.dooioo.se.lorik.apidoclet.ApiDoclet</doclet>
+
+          <docletArtifact>
+            <groupId>com.dooioo.se.lorik</groupId>
+            <artifactId>lorik-apidoclet</artifactId>
+            <version>1.0.0</version>
+          </docletArtifact>
+        	 <additionalparam>-classdir ${project.build.outputDirectory} -appName ${project.name}</additionalparam>
+         <useStandardDocletOptions>false</useStandardDocletOptions>
+        </configuration>
+      </plugin>
+    </plugins>
+  
+  </build>
 </project>

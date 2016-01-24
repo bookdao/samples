@@ -4,8 +4,7 @@ import com.dooioo.se.lorik.spi.view.support.BizCode;
 
 /**
   * 楼盘标准业务码
-  * @author huisman
-  * @since 1.0.0  
+  * @summary 
   * @Copyright (c) 2016, Lianjia Group All Rights Reserved.
 */
 public interface LoupanBizCode {
