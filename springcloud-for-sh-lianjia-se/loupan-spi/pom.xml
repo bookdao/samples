@@ -38,7 +38,7 @@
           <docletArtifact>
             <groupId>com.dooioo.se.lorik</groupId>
             <artifactId>lorik-apidoclet</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.0-SNAPSHOT</version>
           </docletArtifact>
         	 <additionalparam>-classdir ${project.build.outputDirectory} -appName ${project.name}</additionalparam>
          <useStandardDocletOptions>false</useStandardDocletOptions>
