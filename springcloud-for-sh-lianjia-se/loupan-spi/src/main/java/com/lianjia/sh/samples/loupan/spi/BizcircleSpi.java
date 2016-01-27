@@ -44,7 +44,7 @@ public interface BizcircleSpi {
      * @summary 根据商圈ID查找商圈 
       */
     @LoginNeedless
-    @LorikRest(value={Feature.NullTo404},codes={"21000:城市不存在"})
+    @LorikRest(value={Feature.NullTo404},codes={21000})
     @RequestMapping(value="/v1/bizcircles/{id}",method=RequestMethod.GET)
     Bizcircle findByIdV1(@PathVariable("id")int id);
   

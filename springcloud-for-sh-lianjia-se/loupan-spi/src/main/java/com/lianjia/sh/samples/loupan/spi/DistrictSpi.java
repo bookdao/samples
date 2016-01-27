@@ -46,7 +46,7 @@ public interface DistrictSpi {
    * @summary 根据区域ID查找区域
    */
   @LoginNeedless
-  @LorikRest(value = {Feature.NullTo404}, codes = {"24000:区域不存在"})
+  @LorikRest(value = {Feature.NullTo404}, codes = {24000})
   @RequestMapping(value = "/v1/districts/{id}", method = RequestMethod.GET)
   Bizcircle findByIdV1(@PathVariable("id") int id);
 

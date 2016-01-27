@@ -16,6 +16,7 @@ import com.lianjia.sh.samples.loupan.spi.model.Resblock;
 
 /**
  * 楼盘SPI,楼盘是从北京链家同步过来的，目前仅支持苏州、上海的楼盘查询。
+ * 
  * @summary 楼盘
  * @Copyright (c) 2016, Lianjia Group All Rights Reserved.
  */
@@ -64,6 +65,7 @@ public interface ResblockSpi {
 
   /**
    * 根据楼盘ID查找楼盘
+   * 
    * @author huisman
    * @version v1
    * @param id 楼盘ID
@@ -72,7 +74,7 @@ public interface ResblockSpi {
    * @summary 根据ID查找楼盘
    */
   @LoginNeedless
-  @LorikRest(value = {Feature.NullTo404}, codes = {"23000:楼盘不存在","22000:商圈不存在"})
+  @LorikRest(value = {Feature.NullTo404}, codes = {23000, 22000})
   @RequestMapping(value = "/v1/resblocks/{id}", method = RequestMethod.GET)
   Resblock findByIdV1(@PathVariable(value = "id") int id);
 }
